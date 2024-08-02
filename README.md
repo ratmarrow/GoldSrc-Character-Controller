@@ -1,5 +1,4 @@
 # GoldSrc Character Controller
-![icon](https://github.com/ratmarrow/GoldGdt/assets/155324574/5cbeb915-b896-4f1b-9a17-155b4f83ecc8)
 
 A mostly-faithful port of the movement from GoldSrc games like Half-Life and Counter-Strike 1.6 to Godot.
 
