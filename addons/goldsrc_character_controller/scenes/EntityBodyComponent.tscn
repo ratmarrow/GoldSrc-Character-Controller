@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnqjewyut21cd"]
+
+[ext_resource type="Script" path="res://addons/goldsrc_character_controller/scripts/entity_body_component.gd" id="1_qrl8l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sjy02"]
+size = Vector3(0.813, 1.829, 0.813)
+
+[node name="Entity Body Component" type="CharacterBody3D" node_paths=PackedStringArray("collision_hull", "view_target", "duck_timer")]
+script = ExtResource("1_qrl8l")
+collision_hull = NodePath("Collision Hull")
+view_target = NodePath("View Target")
+duck_timer = NodePath("Ducking Timer")
+
+[node name="Collision Hull" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sjy02")
+
+[node name="View Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
+
+[node name="Ducking Timer" type="Timer" parent="."]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://copr5bcep1f5b"]
+
+[ext_resource type="Script" path="res://addons/goldsrc_character_controller/scripts/player_input_component.gd" id="1_4digo"]
+
+[node name="Player Input Component" type="Node"]
+script = ExtResource("1_4digo")

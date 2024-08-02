@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cplcfn10tis3v"]
+
+[ext_resource type="Script" path="res://addons/goldsrc_character_controller/scripts/entity_view_component.gd" id="1_ltna4"]
+
+[node name="Entity View Component" type="Node3D" node_paths=PackedStringArray("yaw_node", "pitch_node", "camera_target")]
+script = ExtResource("1_ltna4")
+yaw_node = NodePath("Yaw")
+pitch_node = NodePath("Yaw/Pitch")
+camera_target = NodePath("Yaw/Pitch/Camera Target")
+
+[node name="Yaw" type="Node3D" parent="."]
+
+[node name="Pitch" type="Node3D" parent="Yaw"]
+
+[node name="Camera Target" type="Node3D" parent="Yaw/Pitch"]

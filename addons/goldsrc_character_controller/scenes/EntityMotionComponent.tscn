@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://danln6hwvmnnk"]
+
+[ext_resource type="Script" path="res://addons/goldsrc_character_controller/scripts/entity_motion_component.gd" id="1_wm7wn"]
+
+[node name="Entity Motion Component" type="Node"]
+script = ExtResource("1_wm7wn")

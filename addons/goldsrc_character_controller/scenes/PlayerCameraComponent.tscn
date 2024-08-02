@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmqtwg515vvqp"]
+
+[ext_resource type="Script" path="res://addons/goldsrc_character_controller/scripts/player_camera_component.gd" id="1_kqf0l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kbqbr"]
+custom_solver_bias = 1.0
+margin = 0.25
+radius = 0.15
+
+[node name="Player Camera Component" type="Node3D" node_paths=PackedStringArray("camera_arm", "camera_anchor", "camera")]
+script = ExtResource("1_kqf0l")
+camera_arm = NodePath("Spring Arm")
+camera_anchor = NodePath("Spring Arm/Camera Anchor")
+camera = NodePath("Spring Arm/Camera Anchor/Camera")
+
+[node name="Spring Arm" type="SpringArm3D" parent="."]
+shape = SubResource("SphereShape3D_kbqbr")
+spring_length = 0.0
+margin = 0.1
+
+[node name="Camera Anchor" type="Node3D" parent="Spring Arm"]
+
+[node name="Camera" type="Camera3D" parent="Spring Arm/Camera Anchor"]
+fov = 90.0
+near = 0.001

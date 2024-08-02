@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://gwunh0jnqjjk"]
+
+[ext_resource type="PackedScene" uid="uid://copr5bcep1f5b" path="res://addons/goldsrc_character_controller/scenes/PlayerInputComponent.tscn" id="1_srod8"]
+[ext_resource type="Resource" uid="uid://c1hjc38orbiye" path="res://addons/goldsrc_character_controller/resources/default_config.tres" id="2_5rl8c"]
+[ext_resource type="PackedScene" uid="uid://danln6hwvmnnk" path="res://addons/goldsrc_character_controller/scenes/EntityMotionComponent.tscn" id="2_83bak"]
+[ext_resource type="PackedScene" uid="uid://dnqjewyut21cd" path="res://addons/goldsrc_character_controller/scenes/EntityBodyComponent.tscn" id="3_st460"]
+[ext_resource type="PackedScene" uid="uid://cplcfn10tis3v" path="res://addons/goldsrc_character_controller/scenes/EntityViewComponent.tscn" id="4_tt081"]
+[ext_resource type="PackedScene" uid="uid://dmqtwg515vvqp" path="res://addons/goldsrc_character_controller/scenes/PlayerCameraComponent.tscn" id="5_yuc8u"]
+[ext_resource type="PackedScene" uid="uid://tpvclehjvudv" path="res://addons/goldsrc_character_controller/scenes/PlayerEntityMonitor.tscn" id="7_dwmci"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Player Input Component" parent="." node_paths=PackedStringArray("Body", "Move", "View") instance=ExtResource("1_srod8")]
+Config = ExtResource("2_5rl8c")
+Body = NodePath("../Entity Body Component")
+Move = NodePath("../Entity Motion Component")
+View = NodePath("../Entity View Component")
+
+[node name="Entity Motion Component" parent="." node_paths=PackedStringArray("Body") instance=ExtResource("2_83bak")]
+Config = ExtResource("2_5rl8c")
+Body = NodePath("../Entity Body Component")
+
+[node name="Entity Body Component" parent="." instance=ExtResource("3_st460")]
+collision_layer = 2
+platform_on_leave = 1
+safe_margin = 0.002
+Config = ExtResource("2_5rl8c")
+
+[node name="Entity View Component" parent="." node_paths=PackedStringArray("Body") instance=ExtResource("4_tt081")]
+Config = ExtResource("2_5rl8c")
+Body = NodePath("../Entity Body Component")
+
+[node name="Player Camera Component" parent="." node_paths=PackedStringArray("View") instance=ExtResource("5_yuc8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
+Config = ExtResource("2_5rl8c")
+View = NodePath("../Entity View Component")
+
+[node name="Player Entity Monitor" parent="." node_paths=PackedStringArray("Controls", "View", "Body") instance=ExtResource("7_dwmci")]
+Controls = NodePath("../Player Input Component")
+View = NodePath("../Entity View Component")
+Body = NodePath("../Entity Body Component")
