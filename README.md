@@ -14,7 +14,7 @@ A mostly-faithful port of the movement from GoldSrc games like Half-Life and Cou
 2. Copy the "addons" folder from this repository into the project folder for your Godot project.
 3. Enable "GoldSrc Character Controller" in your project's addon page.
 4. Reload your project.
-5. Drop the "Pawn" scene into whatever other scenes you need it in.
+5. Drop the "Player" scene into whatever other scenes you need it in.
 
 ## Setup
 
